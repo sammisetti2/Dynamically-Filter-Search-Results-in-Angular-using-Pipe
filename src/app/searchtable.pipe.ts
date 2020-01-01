@@ -9,11 +9,13 @@ import { isString } from 'util';
 export class SearchtablePipe implements PipeTransform {
 
   transform(val: any, ...args: any[]): any {
-
+    
     var rows = (<HTMLTableElement>document.getElementById("table")).rows.length;
+    //entered var for checking if value in search bar is a Name or not
     var entered = false;
     //console.log(rows);
     var count:number = 0;
+    //For loop for checking if value entered in search bar is a substring of the name column
     for(var i=2; i < rows;i++){
         var cellval:string = (<HTMLTableElement>document.getElementById("table")).rows[i].cells.item(1).innerHTML;
         //console.log(cellval);
@@ -28,9 +30,12 @@ export class SearchtablePipe implements PipeTransform {
           (<HTMLTableElement>document.getElementById("table")).rows[i].style.display = "none";
         }
     }
+    
+    //!entered means value isn't a name so...
     if(!entered)
     {
       count = 0;
+      //For loop for checking if value entered in search bar is a substring of the Age column
       for(var i=2; i < rows;i++){
         var cellval:string = (<HTMLTableElement>document.getElementById("table")).rows[i].cells.item(2).innerHTML;
         //console.log(cellval);
