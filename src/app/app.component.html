@@ -1,0 +1,22 @@
+<head>
+
+</head>
+<body>
+  <table id="table" border = "1">
+    <tr>
+      <th colspan="3">
+      Search: <input id="search" type="text" [ngModel]="searchInput | searchtable" (ngModelChange)="searchInput=$event">
+      </th>
+    </tr>
+    <tr>
+      <th width = "10px">#</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let n of names; index as i">
+      <td>{{i+1}}</td>
+      <td>{{n.name}}</td>
+      <td>{{n.age}}</td>
+    </tr>
+  </table>
+</body>
